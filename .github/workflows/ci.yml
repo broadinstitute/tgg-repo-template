@@ -30,15 +30,17 @@ jobs:
           pip install -r requirements.txt
           pip install -r requirements-dev.txt
       - name: Check formatting
-        run: black --check tgg_repo_template
+        run: black --check tgg_repo_template tests
       - name: Check imports
-        run: isort --check-only tgg_repo_template
+        run: isort --check-only tgg_repo_template tests
       - name: Check comment formatting
-        run: autopep8 --exit-code --diff tgg_repo_template
+        run: autopep8 --exit-code --diff tgg_repo_template tests
       - name: Run Pylint
         run: ./lint --disable=W
       - name: Check docstrings
-        run: pydocstyle tgg_repo_template
+        run: pydocstyle tgg_repo_template tests
+      - name: Run tests
+        run: python -m pytest
   docs:
     name: Build documentation
     runs-on: ubuntu-latest
