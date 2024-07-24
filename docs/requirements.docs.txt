@@ -84,6 +84,4 @@ sphinxcontrib-qthelp==1.0.6
 sphinxcontrib-serializinghtml==1.1.9
     # via sphinx
 urllib3==1.26.18
-    # via
-    #   -r docs/requirements.docs.in
-    #   requests
+    # via requests
